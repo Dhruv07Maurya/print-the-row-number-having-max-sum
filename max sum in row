@@ -1,0 +1,32 @@
+// c programming
+
+#include <stdio.h>
+
+int main() {
+    int arr[3][3] = {1,5,3,4,3,42,4,5,4};  //here we can input array from scanf!
+
+    int i, j;
+    int maxSum = 0; // Initialize maxSum to 0
+    int maxRow = -1; // Initialize maxRow to -1 (assuming all elements are non-negative)
+ 
+    for (i = 0; i < 3; i++) {
+        int sum = 0; // Initialize sum for each row
+        for (j = 0; j < 3; j++) {
+            sum = sum + arr[i][j];
+        }
+
+        // Check if the current row's sum is greater than the current maximum sum
+        if (sum > maxSum) {
+            maxSum = sum;
+            maxRow = i+1; // Update the maxRow to the current row number
+        }
+    }
+
+    if (maxRow != -1) {
+        printf("Row number with maximum sum: %d\n", maxRow );
+    } else {
+        printf("The matrix is empty or all elements are non-positive.\n");
+    }
+
+    return 0;
+}
